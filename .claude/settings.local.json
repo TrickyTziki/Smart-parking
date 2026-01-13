@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create vite@latest:*)",
+      "Bash(npm run build:*)",
+      "Bash(timeout:*)",
+      "Bash(find:*)",
+      "Skill(frontend-design)",
+      "Bash(dir:*)"
+    ]
+  }
+}

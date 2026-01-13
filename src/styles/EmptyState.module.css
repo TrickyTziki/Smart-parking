@@ -1,0 +1,40 @@
+/* EmptyState Component */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+}
+
+.icon {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  opacity: 0.6;
+}
+
+.icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.description {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.action {
+  margin-top: var(--space-6);
+}
