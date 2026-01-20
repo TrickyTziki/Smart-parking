@@ -1,8 +1,7 @@
-/* Modal Component */
 .backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #00000066;
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -23,7 +22,6 @@
   outline: none;
 }
 
-/* Sizes */
 .small {
   width: 100%;
   max-width: 400px;
@@ -39,7 +37,6 @@
   max-width: 720px;
 }
 
-/* Header */
 .header {
   display: flex;
   align-items: center;
@@ -84,13 +81,11 @@
   box-shadow: var(--shadow-glow);
 }
 
-/* Content */
 .content {
   padding: var(--space-6);
   overflow-y: auto;
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .backdrop {
     padding: var(--space-4);

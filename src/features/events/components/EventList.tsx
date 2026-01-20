@@ -28,7 +28,6 @@ export function EventList({ events, registrations, onCreateEvent }: EventListPro
   const filterEvents = (eventList: ParkingEvent[]) => {
     let filtered = eventList;
 
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
       filtered = filtered.filter((event) =>
@@ -38,7 +37,6 @@ export function EventList({ events, registrations, onCreateEvent }: EventListPro
       );
     }
 
-    // Filter by date
     if (dateFilter) {
       filtered = filtered.filter((event) => event.date === dateFilter);
     }
@@ -89,6 +87,58 @@ export function EventList({ events, registrations, onCreateEvent }: EventListPro
       </div>
 
       <div className={styles.toolbar}>
+        <div className={styles.mobileControls}>
+          <div className={styles.searchWrapper}>
+            <Icon name="search" size="sm" className={styles.searchIcon} />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={styles.searchInput}
+              aria-label="Search events"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className={styles.clearButton}
+                aria-label="Clear search"
+              >
+                <Icon name="x" size="xs" />
+              </button>
+            )}
+          </div>
+
+          <div className={styles.dateWrapper}>
+            <Icon name="calendar" size="sm" className={styles.dateIcon} />
+            <input
+              type="date"
+              value={dateFilter}
+              onChange={(e) => setDateFilter(e.target.value)}
+              className={styles.dateInput}
+              aria-label="Filter by date"
+            />
+            {dateFilter && (
+              <button
+                type="button"
+                onClick={() => setDateFilter('')}
+                className={styles.clearButton}
+                aria-label="Clear date filter"
+              >
+                <Icon name="x" size="xs" />
+              </button>
+            )}
+          </div>
+
+          <div className={styles.mobileNewEventBtn}>
+            <Button onClick={() => setIsModalOpen(true)}>
+              <Icon name="plus" size="sm" />
+              New Event
+            </Button>
+          </div>
+        </div>
+
         <div className={styles.filters}>
           <div className={styles.searchWrapper}>
             <Icon name="search" size="sm" className={styles.searchIcon} />

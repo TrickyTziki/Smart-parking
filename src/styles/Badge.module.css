@@ -1,4 +1,3 @@
-/* Badge Component */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -10,7 +9,6 @@
   white-space: nowrap;
 }
 
-/* Sizes */
 .small {
   padding: var(--space-1) var(--space-2);
   font-size: var(--text-xs);
@@ -21,7 +19,6 @@
   font-size: var(--text-sm);
 }
 
-/* Variants */
 .default {
   background-color: var(--color-divider);
   color: var(--color-text-secondary);

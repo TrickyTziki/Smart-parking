@@ -5,7 +5,6 @@
   background-color: var(--color-background);
 }
 
-/* Header */
 .header {
   position: sticky;
   top: 0;
@@ -62,7 +61,6 @@
   letter-spacing: -0.02em;
 }
 
-/* Main */
 .main {
   flex: 1;
   background-color: var(--color-background);
@@ -74,7 +72,6 @@
   padding: var(--space-10) var(--space-6);
 }
 
-/* Footer */
 .footer {
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border-subtle);
@@ -108,7 +105,6 @@
   color: var(--color-text-subtle);
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .headerContent {
     padding: var(--space-4) var(--space-4);

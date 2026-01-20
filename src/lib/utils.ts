@@ -13,20 +13,15 @@ export function generateAccessCode(): string {
 
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
 }
 
 export function formatTime(timeString: string): string {
   const [hours, minutes] = timeString.split(':');
-  const hour = parseInt(hours, 10);
-  const ampm = hour >= 12 ? 'PM' : 'AM';
-  const hour12 = hour % 12 || 12;
-  return `${hour12}:${minutes} ${ampm}`;
+  return `${hours.padStart(2, '0')}:${minutes}`;
 }
 
 export function getEventStatus(event: { date: string; startTime: string; endTime: string }): 'upcoming' | 'active' | 'completed' {

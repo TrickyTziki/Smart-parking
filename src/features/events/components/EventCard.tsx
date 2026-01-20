@@ -33,6 +33,7 @@ export function EventCard({ event, registrationCount = 0 }: EventCardProps) {
 
   const spotsRemaining = event.spotsReserved - registrationCount;
   const spotsPercentage = (registrationCount / event.spotsReserved) * 100;
+  const isFull = spotsRemaining <= 0;
 
   return (
     <Card
@@ -76,15 +77,16 @@ export function EventCard({ event, registrationCount = 0 }: EventCardProps) {
             <span className={styles.spotsLabel}>Parking spots</span>
             <span className={styles.spotsValue}>
               {registrationCount} / {event.spotsReserved}
+              {isFull && <span className={styles.fullBadge}>Full</span>}
             </span>
           </div>
           <div className={styles.progressBar}>
             <div
-              className={styles.progressFill}
+              className={`${styles.progressFill} ${isFull ? styles.progressFillFull : styles.progressFillAvailable}`}
               style={{ width: `${Math.min(spotsPercentage, 100)}%` }}
             />
           </div>
-          {spotsRemaining > 0 && (
+          {!isFull && (
             <span className={styles.spotsRemaining}>
               {spotsRemaining} available
             </span>

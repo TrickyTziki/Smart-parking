@@ -1,4 +1,3 @@
-/* EventList Component */
 .container {
   display: flex;
   flex-direction: column;
@@ -34,7 +33,6 @@
   color: var(--color-text-muted);
 }
 
-/* Toolbar */
 .toolbar {
   display: flex;
   align-items: center;
@@ -43,7 +41,6 @@
   flex-wrap: wrap;
 }
 
-/* Filters */
 .filters {
   display: flex;
   align-items: center;
@@ -51,7 +48,6 @@
   flex: 1;
 }
 
-/* Search */
 .searchWrapper {
   position: relative;
   flex: 1;
@@ -128,7 +124,6 @@
   box-shadow: var(--shadow-glow);
 }
 
-/* Date Filter */
 .dateWrapper {
   position: relative;
   width: 180px;
@@ -171,7 +166,6 @@
   box-shadow: var(--shadow-glow);
 }
 
-/* Style the date input calendar icon */
 .dateInput::-webkit-calendar-picker-indicator {
   position: absolute;
   left: 0;
@@ -182,7 +176,6 @@
   cursor: pointer;
 }
 
-/* Tabs */
 .tabs {
   display: flex;
   gap: var(--space-1);
@@ -248,7 +241,6 @@
   color: var(--color-primary);
 }
 
-/* Content */
 .content {
   min-height: 200px;
 }
@@ -259,19 +251,26 @@
   gap: var(--space-6);
 }
 
-/* Responsive */
+.mobileControls {
+  display: none;
+}
+
+.mobileNewEventBtn {
+}
+
 @media (max-width: 640px) {
   .container {
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
 
   .header {
     flex-direction: column;
     align-items: stretch;
+    gap: var(--space-2);
   }
 
-  .header button {
-    width: 100%;
+  .header > button {
+    display: none;
   }
 
   .title {
@@ -285,19 +284,43 @@
   .toolbar {
     flex-direction: column;
     align-items: stretch;
+    gap: var(--space-4);
   }
 
   .filters {
-    flex-direction: column;
+    display: none;
   }
 
-  .searchWrapper {
-    max-width: none;
+  .mobileControls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .mobileControls .searchWrapper {
+    grid-column: 1 / 2;
     min-width: 0;
+    max-width: none;
   }
 
-  .dateWrapper {
+  .mobileControls .dateWrapper {
+    grid-column: 2 / 3;
+    width: auto;
+  }
+
+  .mobileControls .mobileNewEventBtn {
+    grid-column: 1 / -1;
+  }
+
+  .mobileControls .mobileNewEventBtn button {
     width: 100%;
+    height: 44px;
+  }
+
+  .mobileControls .searchInput,
+  .mobileControls .dateInput {
+    height: 44px;
+    border-radius: var(--radius-md);
   }
 
   .tabs {

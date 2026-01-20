@@ -38,6 +38,7 @@ export function EventDetail({
 
   const status = statusConfig[event.status];
   const spotsRemaining = event.spotsReserved - registrations.length;
+  const isFull = spotsRemaining <= 0;
   const isEditable = event.status === 'upcoming';
 
   const handleUpdate = (data: EventFormData) => {
@@ -137,14 +138,16 @@ export function EventDetail({
             </div>
 
             <div className={styles.infoItem}>
-              <div className={styles.infoIcon}>
+              <div className={`${styles.infoIcon} ${isFull ? styles.infoIconFull : ''}`}>
                 <Icon name="car" size="md" />
               </div>
               <div>
                 <span className={styles.infoLabel}>Parking Spots</span>
                 <span className={styles.infoValue}>
                   {registrations.length} / {event.spotsReserved} registered
-                  {spotsRemaining > 0 && (
+                  {isFull ? (
+                    <span className={styles.spotsFull}>Full</span>
+                  ) : (
                     <span className={styles.spotsRemaining}>
                       ({spotsRemaining} available)
                     </span>
@@ -190,7 +193,7 @@ export function EventDetail({
                     {registration.licensePlate || '—'}
                   </span>
                   <span className={styles.registeredAt}>
-                    {new Date(registration.registeredAt).toLocaleDateString()}
+                    {formatDate(registration.registeredAt)}
                   </span>
                 </div>
               ))}

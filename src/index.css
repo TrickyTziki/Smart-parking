@@ -1,33 +1,24 @@
-/* Fonts - Satoshi for distinctive character */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap");
 
-/* ================================================
-   ParkingHub Design System
-   Swiss-Inspired Editorial Minimalism
-   ================================================ */
-
-/* Design Tokens */
 :root {
-  /* Colors - Refined White Aesthetic */
   --color-primary: #e85d4c;
   --color-primary-dark: #d14a3a;
-  --color-primary-light: rgba(232, 93, 76, 0.08);
-  --color-primary-glow: rgba(232, 93, 76, 0.15);
+  --color-primary-light: #e85d4c14;
+  --color-primary-glow: #e85d4c26;
 
   --color-success: #2d9d78;
-  --color-success-light: rgba(45, 157, 120, 0.08);
+  --color-success-light: #2d9d7814;
 
   --color-warning: #e09f3e;
-  --color-warning-light: rgba(224, 159, 62, 0.08);
+  --color-warning-light: #e09f3e14;
 
   --color-danger: #c44536;
   --color-danger-dark: #a83828;
-  --color-danger-light: rgba(196, 69, 54, 0.08);
+  --color-danger-light: #c4453614;
 
   --color-info: #4a7c9b;
-  --color-info-light: rgba(74, 124, 155, 0.08);
+  --color-info-light: #4a7c9b14;
 
-  /* Neutrals - Rich charcoal to pure white */
   --color-text: #1a1a1a;
   --color-text-secondary: #525252;
   --color-text-muted: #8a8a8a;
@@ -36,24 +27,22 @@
   --color-background: #ffffff;
   --color-surface: #ffffff;
   --color-surface-raised: #ffffff;
-  --color-surface-overlay: rgba(255, 255, 255, 0.97);
+  --color-surface-overlay: #fffffff7;
   --color-border: #e8e8e8;
   --color-border-subtle: #f0f0f0;
+  --color-border-hover: #d0d0d0;
   --color-divider: #f5f5f5;
 
-  /* Typography */
-  --font-display: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --font-display: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --font-mono: "Roboto", sans-serif;
 
-  /* Font Weights */
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
   --weight-black: 900;
 
-  /* Font Sizes - Modular Scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -64,7 +53,6 @@
   --text-4xl: 2.5rem;
   --text-5xl: 3.5rem;
 
-  /* Spacing - 4px base */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -78,7 +66,6 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* Border Radius */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -86,16 +73,14 @@
   --radius-2xl: 28px;
   --radius-full: 9999px;
 
-  /* Shadows - Refined and subtle */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+  --shadow-xs: 0 1px 2px #0000000a;
+  --shadow-sm: 0 2px 8px #0000000a, 0 1px 2px #0000000f;
+  --shadow-md: 0 4px 16px #0000000f, 0 2px 4px #0000000a;
+  --shadow-lg: 0 8px 32px #00000014, 0 4px 8px #0000000a;
+  --shadow-xl: 0 16px 48px #0000001a, 0 8px 16px #0000000f;
   --shadow-glow: 0 0 0 4px var(--color-primary-glow);
-  --shadow-inner: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-inner: inset 0 1px 2px #0000000f;
 
-  /* Transitions */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -105,17 +90,12 @@
   --duration-slow: 400ms;
   --duration-slower: 600ms;
 
-  /* Z-Index Scale */
   --z-dropdown: 100;
   --z-sticky: 200;
   --z-modal-backdrop: 300;
   --z-modal: 400;
   --z-tooltip: 500;
 }
-
-/* ================================================
-   Base Styles
-   ================================================ */
 
 *,
 *::before,
@@ -145,8 +125,12 @@ body {
   min-height: 100vh;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
@@ -173,7 +157,6 @@ p {
   margin: 0;
 }
 
-/* Links */
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -184,46 +167,40 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-/* Focus styles */
 :focus-visible {
   outline: none;
   box-shadow: var(--shadow-glow);
 }
 
-/* Buttons reset */
 button {
   font-family: inherit;
   cursor: pointer;
 }
 
-/* Lists */
-ul, ol {
+ul,
+ol {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Images */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Form elements */
 input,
 textarea,
 select {
   font-family: inherit;
 }
 
-/* Selection */
 ::selection {
   background-color: var(--color-primary-light);
   color: var(--color-text);
 }
 
-/* Scrollbar - Refined */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -242,10 +219,6 @@ select {
   background: var(--color-text-muted);
 }
 
-/* ================================================
-   Utility Classes
-   ================================================ */
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -258,7 +231,6 @@ select {
   border: 0;
 }
 
-/* Print styles */
 @media print {
   body {
     background-color: white;

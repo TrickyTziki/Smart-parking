@@ -36,7 +36,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         <motion.div
           ref={ref}
           className={classNames}
-          whileHover={{ y: -2, boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)' }}
+          whileHover={{ y: -2, boxShadow: '0 8px 25px #0000001a' }}
           transition={{ duration: 0.2 }}
           {...props}
         >
